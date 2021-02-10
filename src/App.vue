@@ -1,18 +1,25 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+      <widget-time
+      @loading="isLoading = $event" />
+      <b-loading :is-full-page="isFullPage" v-model="isLoading" :can-cancel="true"></b-loading>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import WidgetTime from './components/widget-time'
 
 export default {
   name: 'App',
+  data() {
+    return {
+      isFullPage: true,
+      isLoading: false
+    }
+  },
   components: {
-    HelloWorld
-  }
+    WidgetTime
+  },
 }
 </script>
 
